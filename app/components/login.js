@@ -1,8 +1,25 @@
 "use client"
 
 import Link from "next/link"
+import { auth, signInWithEmailAndPassword } from './firebase/init'
+import Image from 'next/image'
+import google from "app/assets/google.png"
+import { useState } from "react"
 
 export const login = () => {
+
+  const [user, setUser] = useState({})
+
+  function logIn() {
+    signInWithEmailAndPassword(auth, email, password)
+    .then(({ user }) => {    
+      setUser(user);
+    })
+    .catch((error) => {
+      const errorCode = error.code;
+      const errorMessage = error.message;
+    });
+  }
 
   return(
     <div className="login">
@@ -21,6 +38,7 @@ export const login = () => {
         className="google-login"
         onClick={googleLogin}
       >
+        <Image src={google} alt="Google icon" />
         Login with Google
       </button>
       <div className="space">
@@ -34,8 +52,13 @@ export const login = () => {
         type="password"
         placeholder="Password"
       />
-      <button className="btn home__cta--btn">Login</button>
-      <Link href="/" className="login-text">Forgot your password?</Link>
+      <button 
+        className="btn home__cta--btn"
+        onClick={logIn}
+      >
+        Login
+      </button>
+      <span className="login-text">Forgot your password?</span>
       <div className="login__base">
         <span className="login-text">Don't have an account</span>
       </div>
