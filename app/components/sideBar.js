@@ -6,11 +6,10 @@ import { IoMdSearch, IoMdHelpCircleOutline } from "react-icons/io"
 import { BsBookmark } from "react-icons/bs"
 import { CiSettings } from "react-icons/ci"
 import { LuLogOut } from "react-icons/lu"
-import { useAppSelector, useAppDispatch } from '../redux/hooks'
+import { useAppDispatch } from '../redux/hooks'
 import { login, logout } from '../redux/features/counterSlice'
 
 export const sideBar = () => {
-  const user = useAppSelector((state) => state.counter.value)
   const dispatch = useAppDispatch()
   
   return (

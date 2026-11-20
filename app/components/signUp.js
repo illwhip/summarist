@@ -38,7 +38,7 @@ export const signUP = () => {
         Sign up
       </button>
       <div className="login__base">
-        <span className="login-text" onClick={login}>Already have an account</span>
+        <span className="login-text" onClick={openLogin}>Already have an account</span>
       </div>
     </div>
   )
