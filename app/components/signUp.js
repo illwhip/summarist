@@ -2,26 +2,11 @@
 
 import Image from 'next/image'
 import google from "app/assets/google.png"
-import { auth } from './firebase/init'
-import { createUserWithEmailAndPassword } from "firebase/auth"
-import { useState } from "react"
+import { useAppDispatch } from '../redux/hooks'
+import { register } from '../redux/features/counterSlice'
 
-export const signUP = () => {
-
-  const [email, setEmail] = useState("")
-  const [password, setPassword] = useState("")
-
-  function register(){
-    setEmail(email)
-    setPassword(password)
-    createUserWithEmailAndPassword(auth, email, password)
-      .then((user) => {
-        console.log(user)
-      })
-      .catch((error) => {
-        console.log(error)
-      })
-  }
+export const signUP = () => {  
+  const dispatch = useAppDispatch()
 
   return (
     <div className="login">
@@ -48,7 +33,7 @@ export const signUP = () => {
       />
       <button 
         className="btn home__cta--btn"
-        onClick={register}
+        onClick={() => dispatch(register())}
       >
         Sign up
       </button>

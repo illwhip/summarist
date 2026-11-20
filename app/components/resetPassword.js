@@ -17,7 +17,7 @@ export const resetPassword = () => {
         Send reset password link
       </button>
       <div className="login__base">
-        <span className="login-text" onClick={login}>Go to login</span>
+        <span className="login-text" onClick={showLogin}>Go to login</span>
       </div>
     </div>
   )

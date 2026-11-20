@@ -1,0 +1,35 @@
+import { createSlice } from '@reduxjs/toolkit';
+
+const logSlice = createSlice({
+ name: 'user',
+ initialState: {},
+ reducers: {
+   login: (state) => {
+     signInWithEmailAndPassword(auth, email, password)
+    .then(({ user }) => {    
+      state = user
+    })
+    .catch((error) => {
+      console.log(error.message)
+    })},
+   logout: (state) => {
+      signOut(state)
+      user = {}
+    },
+    register: (state) => {
+      createUserWithEmailAndPassword(auth, email, password)
+      .then((user) => {
+        state = user
+      })
+      .catch((error) => {
+        console.log(error.message)
+      })
+    }
+  }
+});
+
+
+export const { login, logout, register } = logSlice.actions;
+export default logSlice.reducer;
+
+

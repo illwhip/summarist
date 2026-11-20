@@ -1,25 +1,12 @@
 "use client"
 
-import Link from "next/link"
-import { auth, signInWithEmailAndPassword } from './firebase/init'
 import Image from 'next/image'
 import google from "app/assets/google.png"
-import { useState } from "react"
+import { useAppDispatch } from '../redux/hooks';
+import { login } from '../redux/features/counterSlice'
 
-export const login = () => {
-
-  const [user, setUser] = useState({})
-
-  function logIn() {
-    signInWithEmailAndPassword(auth, email, password)
-    .then(({ user }) => {    
-      setUser(user);
-    })
-    .catch((error) => {
-      const errorCode = error.code;
-      const errorMessage = error.message;
-    });
-  }
+export const login = () => {  
+  const dispatch = useAppDispatch()
 
   return(
     <div className="login">
@@ -54,7 +41,7 @@ export const login = () => {
       />
       <button 
         className="btn home__cta--btn"
-        onClick={logIn}
+        onClick={() => dispatch(login())}
       >
         Login
       </button>

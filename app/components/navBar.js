@@ -1,3 +1,5 @@
+"use Client"
+
 import Link from "next/link";
 
 export const Nav = () => {
@@ -12,10 +14,10 @@ export const Nav = () => {
             alt="logo" />
         </figure>
         <ul className="nav__list--wrapper">
-          <Link href="/"><li className="nav__list nav__list--login">Login</li></Link>
-          <Link href="/"><li className="nav__list nav__list--mobile">About</li></Link>
-          <Link href="/"><li className="nav__list nav__list--mobile">Contact</li></Link>
-          <Link href="/"><li className="nav__list nav__list--mobile">Help</li></Link>
+          {/* <span onClick={openLogin}><li className="nav__list nav__list--login">Login</li></span> */}
+          <Link href="#"><li className="nav__list nav__list--mobile">About</li></Link>
+          <Link href="#"><li className="nav__list nav__list--mobile">Contact</li></Link>
+          <Link href="#"><li className="nav__list nav__list--mobile">Help</li></Link>
         </ul>
       </div>
     </nav>    

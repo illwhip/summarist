@@ -1,20 +1,17 @@
 "use client"
 
-import { auth } from "../firebase/init"
-import { signOut } from "firebase/auth"
 import { PiHouseLineLight } from "react-icons/pi"
 import { RiBallPenLine } from "react-icons/ri"
 import { IoMdSearch, IoMdHelpCircleOutline } from "react-icons/io"
 import { BsBookmark } from "react-icons/bs"
 import { CiSettings } from "react-icons/ci"
 import { LuLogOut } from "react-icons/lu"
+import { useAppSelector, useAppDispatch } from '../redux/hooks'
+import { login, logout } from '../redux/features/counterSlice'
 
 export const sideBar = () => {
-  
-  function signOut() {
-    signOut(auth)
-    setUser({})
-  }
+  const user = useAppSelector((state) => state.counter.value)
+  const dispatch = useAppDispatch()
   
   return (
     <div className="sidebar">
@@ -61,9 +58,14 @@ export const sideBar = () => {
           </Link>
         </div>
         <div className="link--line">
-          <span onClick={!!user ? signOut : logIn}>
+          <span 
+            onClick={
+              !!user ? 
+              () => dispatch(logout()) 
+              : 
+              () => dispatch(login())}>
             <LuLogOut />
-            {!!user ? "Login" : "Logout"}
+            {!!user ? "Logout" : "Login"}
           </span>
         </div>
       </div>

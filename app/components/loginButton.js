@@ -2,7 +2,7 @@
 
 import { useRef, useEffect } from "react"
 
-export default function loginButton() {
+export const LoginButton = () => {
 
   function openLogin() {
     const loginRef = useRef<HTMLDialogElement>(null)

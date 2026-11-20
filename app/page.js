@@ -6,10 +6,11 @@ import { AiFillFileText, AiFillBulb, AiFillAudio } from "react-icons/ai"
 import { BsStarFill, BsStarHalf } from "react-icons/bs"
 import { BiCrown } from "react-icons/bi"
 import { RiLeafLine } from "react-icons/ri"
+import { LoginButton } from "./components/loginButton";
 
 export default function Home() {
   return (
-    <body>
+    <>
       <Nav />
       <section id="landing">
         <div className="container">
@@ -27,7 +28,7 @@ export default function Home() {
                   <br className="remove--tablet" />
                   and even people who don’t like to read.
                 </div>
-                <button className="btn home__cta--btn">Login</button>
+                <LoginButton />
               </div>
               <figure className="landing__image--mask">
                 <Image src={landing} alt="landing" />
@@ -221,7 +222,7 @@ export default function Home() {
               </div>
             </div>
             <div className="reviews__btn--wrapper">
-              <button className="btn home__cta--btn">Login</button>
+              <LoginButton />
             </div>
           </div>
         </div>
@@ -264,6 +265,6 @@ export default function Home() {
       
     <Footer />
 
-    </body>
+    </>
   );
 }
