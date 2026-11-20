@@ -3,11 +3,11 @@
 import { auth } from "../firebase/init"
 import { signOut, signInWithEmailAndPassword, createUserWithEmailAndPassword } from "firebase/auth"
 import { useAppDispatch } from '../redux/hooks'
-import { setUser, clearUser } from '../redux/features/counterSlice'
+import { setUser, clearUser } from '../redux/features/logSlice'
 
 const dispatch = useAppDispatch()
 
-export default function logIn() {
+export function logIn() {
   signInWithEmailAndPassword(auth, email, password)
   .then(() => {
   dispatch(setUser());
@@ -17,12 +17,12 @@ export default function logIn() {
   })
 }
 
-export default function logOut() {
+export function logOut() {
   signOut();
   dispatch(clearUser());
 }
 
-export default function register() {
+export function register() {
   createUserWithEmailAndPassword(auth, email, password)
   .then(() => {
   dispatch(setUser());
@@ -32,7 +32,7 @@ export default function register() {
   })
 }
 
-export default function guestLogIn() {
+export function guestLogIn() {
   signInAnonymously(auth)
     .then(() => {
       dispatch(setUser())

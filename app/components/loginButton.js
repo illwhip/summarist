@@ -1,25 +1,23 @@
 "use client"
 
-import { useRef, useEffect } from "react"
+import { useAppDispatch, useAppSelector } from '../redux/hooks'
+import { openModal } from '../redux/features/openLoginSlice'
+import { LoginModal } from './login'
 
 export const LoginButton = () => {
-
-  function openLogin() {
-    const loginRef = useRef<HTMLDialogElement>(null)
-
-    useEffect(() => {
-      loginRef.current?.showModal()
-    }, [])
-
-    return 
-  }
-
-    return (
+  const dispatch = useAppDispatch()
+  const selector = useAppSelector()
+  const isOpen = selector((state) => state.modal.isOpen)
+  
+  return (
+    <>
     <button 
       className="btn home__cta--btn"
-      onClick={openLogin}
+      onClick={() => dispatch(openModal())}
     >
         Login
     </button>
+    {isOpen ? <LoginModal /> : null}
+  </>
   )
 }

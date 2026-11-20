@@ -1,18 +1,22 @@
 "use client"
 
 import Image from 'next/image'
-import google from "app/assets/google.png"
-import { logIn, guestLogin } from '../firebase/helpers'
+import google from "@/app/assets/google.png"
+import { logIn, guestLogIn } from '../firebase/helpers'
+import { useAppDispatch } from '../redux/hooks'
+import { closeModal } from '../redux/features/openLoginSlice'
 
-export const login = () => {  
-  
+
+export const LoginModal = () => { 
+  const dispatch = useAppDispatch() 
+
   return (
     <div className="login">
-      <button onClick={closeLogin}>✕</button>
+      <button onClick={() => dispatch(closeModal())}>✕</button>
       <h2>Log in to Summarist</h2>
       <button 
         className="guest-login"
-        onClick={guestLogin}
+        onClick={guestLogIn}
       >
         Login as a Guest
       </button>

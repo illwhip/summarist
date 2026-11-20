@@ -3,11 +3,15 @@
 import Image from 'next/image'
 import google from "app/assets/google.png"
 import { register } from '../firebase/helpers'
+import { useAppDispatch } from '../redux/hooks'
+import { closeModal } from '../redux/features/openLoginSlice'
 
 export const signUP = () => {  
+  const dispatch = useAppDispatch()
   
   return (
     <div className="login">
+      <button className="close__btn" onClick={() => dispatch(closeModal())}>✕</button>
       <h2>Sign up to Summarist</h2>
       <button 
         className="google-login"
