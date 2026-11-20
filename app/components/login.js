@@ -2,12 +2,10 @@
 
 import Image from 'next/image'
 import google from "app/assets/google.png"
-import { useAppDispatch } from '../redux/hooks';
-import { login } from '../redux/features/counterSlice'
+import { logIn } from '../firebase/helpers'
 
 export const login = () => {  
-  const dispatch = useAppDispatch()
-
+  
   return(
     <div className="login">
       <button onClick={closeLogin}>✕</button>
@@ -41,7 +39,7 @@ export const login = () => {
       />
       <button 
         className="btn home__cta--btn"
-        onClick={() => dispatch(login())}
+        onClick={logIn}
       >
         Login
       </button>

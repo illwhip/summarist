@@ -6,11 +6,9 @@ import { IoMdSearch, IoMdHelpCircleOutline } from "react-icons/io"
 import { BsBookmark } from "react-icons/bs"
 import { CiSettings } from "react-icons/ci"
 import { LuLogOut } from "react-icons/lu"
-import { useAppDispatch } from '../redux/hooks'
-import { login, logout } from '../redux/features/counterSlice'
+import { logOut, logIn } from '../firebase/helpers'
 
 export const sideBar = () => {
-  const dispatch = useAppDispatch()
   
   return (
     <div className="sidebar">
@@ -60,9 +58,11 @@ export const sideBar = () => {
           <span 
             onClick={
               !!user ? 
-              () => dispatch(logout()) 
+               logIn
               : 
-              () => dispatch(login())}>
+              logOut
+            }
+          >
             <LuLogOut />
             {!!user ? "Logout" : "Login"}
           </span>

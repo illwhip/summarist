@@ -2,12 +2,10 @@
 
 import Image from 'next/image'
 import google from "app/assets/google.png"
-import { useAppDispatch } from '../redux/hooks'
-import { register } from '../redux/features/counterSlice'
+import { register } from '../firebase/helpers'
 
 export const signUP = () => {  
-  const dispatch = useAppDispatch()
-
+  
   return (
     <div className="login">
       <h2>Sign up to Summarist</h2>
@@ -33,7 +31,7 @@ export const signUP = () => {
       />
       <button 
         className="btn home__cta--btn"
-        onClick={() => dispatch(register())}
+        onClick={register}
       >
         Sign up
       </button>
