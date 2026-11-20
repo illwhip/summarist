@@ -2,11 +2,11 @@
 
 import Image from 'next/image'
 import google from "app/assets/google.png"
-import { logIn } from '../firebase/helpers'
+import { logIn, guestLogin } from '../firebase/helpers'
 
 export const login = () => {  
   
-  return(
+  return (
     <div className="login">
       <button onClick={closeLogin}>✕</button>
       <h2>Log in to Summarist</h2>
