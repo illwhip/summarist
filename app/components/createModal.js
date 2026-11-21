@@ -9,6 +9,8 @@ export default function CreateModal() {
   const selector = useAppSelector()
   const isOpen = selector((state) => state.modal.isOpen)
 
+  if(isOpen === 0) return null;
+  
   if(isOpen === 1) return <LoginModal />
 
   if(isOpen === 2) return <SignUp />

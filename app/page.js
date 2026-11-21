@@ -1,3 +1,4 @@
+
 import Nav from "./components/navBar";
 import Footer from "./components/footer";
 import Image from 'next/image'
@@ -8,11 +9,15 @@ import { BiCrown } from "react-icons/bi"
 import { RiLeafLine } from "react-icons/ri"
 import LoginButton from "./components/loginButton";
 import CreateModal from "./redux/functions";
+import LoginModal from "./components/login";
+import ResetPassword from "./components/resetPassword";
+import SignUp from "./components/signUp";
+import { useAppSelector } from "./redux/hooks";
 
 
 
 export default function Home() {
-  
+    
   return (
     <>
       <Nav />
