@@ -6,8 +6,7 @@ import ResetPassword from '../components/resetPassword';
 import SignUp from '../components/signUp';
 
 export default function CreateModal() {
-  const selector = useAppSelector()
-  const isOpen = selector((state) => state.modal.isOpen)
+  const isOpen = useAppSelector((state) => state.modal.isOpen)
 
   if(isOpen === 0) return null;
   

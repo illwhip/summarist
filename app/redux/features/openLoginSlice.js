@@ -4,7 +4,7 @@ const openLoginSlice = createSlice({
  name: 'modal',
  initialState: { isOpen: 0 },
  reducers: {
-   openOpen: (state) => {
+   openModal: (state) => {
       state.isOpen = 1
      },
    closeModal: (state) => {

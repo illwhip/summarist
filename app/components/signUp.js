@@ -15,7 +15,7 @@ export default function SignUp() {
       <h2>Sign up to Summarist</h2>
       <button 
         className="google-login"
-        onClick={googleLogin}
+        
       >
         <Image src={google} alt="Google icon" />
         Sign up with Google

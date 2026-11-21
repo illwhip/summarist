@@ -6,8 +6,8 @@ import { openModal } from "../redux/features/openLoginSlice";
 
 
 export default function Nav() {
-  const dispatch = useAppDispatch
-
+  const dispatch = useAppDispatch()
+  
   return (
     <nav className="nav">
       <div className="nav__wrapper">

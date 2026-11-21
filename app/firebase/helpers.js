@@ -5,8 +5,6 @@ import { signOut, signInWithEmailAndPassword, createUserWithEmailAndPassword } f
 import { useAppDispatch } from '../redux/hooks'
 import { setUser, clearUser } from '../redux/features/logSlice'
 
-const dispatch = useAppDispatch()
-
 export function logIn() {
   signInWithEmailAndPassword(auth, email, password)
   .then(() => {

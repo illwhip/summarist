@@ -1,0 +1,61 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.login {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  background: white;
+  border-radius: 1rem;
+  overflow: hidden;
+}
+
+.close-btn {
+  text-align: end;
+  margin: 1rem;
+  font-weight: 700;
+  font-size: 1.5rem;
+}
+
+.guest-login {
+  border: 1px solid black;
+
+}
+
+.google-login {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  text-align: center;
+}
+
+.google-icon {
+  width: 35px;
+  height: auto;
+
+}
+
+.space {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+}
+
+.login-text {
+  cursor: pointer;
+  text-align: center;
+  padding: 0.75rem;
+}
+
+.login__base {
+  background: lightgrey; 
+  text-align: center; 
+  padding: 0.75rem;
+}

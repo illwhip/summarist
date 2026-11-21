@@ -7,6 +7,8 @@ export const makeStore = () => {
    reducer: {
     user: logReducer,
     modal: openLoginReducer,
-   }, 
+   },
+    //  middleware: (getDefaultMiddleware) => 
+    // getDefaultMiddleware().concat(postsApi.middleware),
  });
 };

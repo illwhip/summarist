@@ -5,6 +5,7 @@ import google from "@/app/assets/google.png"
 import { logIn } from '../firebase/helpers'
 import { useAppDispatch } from '../redux/hooks'
 import { closeModal, resetModal, registerModal } from '../redux/features/openLoginSlice'
+import "../styles/login.css"
 
 
 export default function LoginModal() { 
@@ -12,7 +13,7 @@ export default function LoginModal() {
 
   return (
     <div className="login">
-      <button onClick={() => dispatch(closeModal())}>✕</button>
+      <button className="close-btn" onClick={() => dispatch(closeModal())}>✕</button>
       <h2>Log in to Summarist</h2>
       <button 
         className="guest-login"
@@ -27,7 +28,7 @@ export default function LoginModal() {
         className="google-login"
         
       >
-        <Image src={google} alt="Google icon" />
+        <Image className="google-icon" src={google} alt="Google icon" />
         Login with Google
       </button>
       <div className="space">
@@ -49,7 +50,12 @@ export default function LoginModal() {
       </button>
       <span className="login-text" onClick={() => dispatch(resetModal())}>Forgot your password?</span>
       <div className="login__base">
-        <span className="login-text" onClick={() => dispatch(registerModal())}>Don't have an account</span>
+        <span 
+          className="login-text" 
+          onClick={() => dispatch(registerModal())}
+        >
+            Don't have an account
+        </span>
       </div>
     </div>
   )

@@ -8,11 +8,7 @@ import { BsStarFill, BsStarHalf } from "react-icons/bs"
 import { BiCrown } from "react-icons/bi"
 import { RiLeafLine } from "react-icons/ri"
 import LoginButton from "./components/loginButton";
-import CreateModal from "./redux/functions";
-import LoginModal from "./components/login";
-import ResetPassword from "./components/resetPassword";
-import SignUp from "./components/signUp";
-import { useAppSelector } from "./redux/hooks";
+import CreateModal from "./components/createModal";
 
 
 
