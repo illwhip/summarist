@@ -1,3 +1,4 @@
+"use client"
 
 import { useAppSelector } from "../redux/hooks";
 import LoginModal from '../components/login'
