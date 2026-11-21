@@ -1,19 +1,22 @@
-import { Nav } from "./components/navBar";
-import { Footer } from "./components/footer";
+import Nav from "./components/navBar";
+import Footer from "./components/footer";
 import Image from 'next/image'
 import landing from "@/app/assets/landing.png"
 import { AiFillFileText, AiFillBulb, AiFillAudio } from "react-icons/ai"
 import { BsStarFill, BsStarHalf } from "react-icons/bs"
 import { BiCrown } from "react-icons/bi"
 import { RiLeafLine } from "react-icons/ri"
-import { LoginButton } from "./components/loginButton";
+import LoginButton from "./components/loginButton";
+import CreateModal from "./redux/functions";
+
+
 
 export default function Home() {
   
-
   return (
     <>
       <Nav />
+      <CreateModal />
       <section id="landing">
         <div className="container">
           <div className="row">
@@ -263,10 +266,8 @@ export default function Home() {
             </div>
           </div>
         </div>
-      </section>
-      
+      </section>      
     <Footer />
-
     </>
   );
 }

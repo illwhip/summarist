@@ -1,12 +1,12 @@
 "use client"
 
 import Image from 'next/image'
-import google from "app/assets/google.png"
+import google from "/app/assets/google.png"
 import { register } from '../firebase/helpers'
 import { useAppDispatch } from '../redux/hooks'
-import { closeModal } from '../redux/features/openLoginSlice'
+import { closeModal, openModal } from '../redux/features/openLoginSlice'
 
-export const signUP = () => {  
+export default function SignUp() {  
   const dispatch = useAppDispatch()
   
   return (
@@ -40,7 +40,7 @@ export const signUP = () => {
         Sign up
       </button>
       <div className="login__base">
-        <span className="login-text" onClick={openLogin}>Already have an account</span>
+        <span className="login-text" onClick={() => dispatch(openModal())}>Already have an account</span>
       </div>
     </div>
   )

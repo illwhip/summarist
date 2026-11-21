@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-export const Footer = () => {
+export default function Footer() {
 
   return (
     <section id="footer">

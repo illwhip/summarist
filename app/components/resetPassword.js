@@ -1,7 +1,7 @@
 import { useAppDispatch } from '../redux/hooks'
-import { closeModal } from '../redux/features/openLoginSlice'
+import { closeModal, openModal } from '../redux/features/openLoginSlice'
 
-export const resetPassword = () => {
+export default function ResetPassword() {
   const dispatch = useAppDispatch()
 
   return (
@@ -14,12 +14,12 @@ export const resetPassword = () => {
       />
       <button 
         className="btn home__cta--btn"
-        onClick={sendResetPassword}
+        
       >
         Send reset password link
       </button>
       <div className="login__base">
-        <span className="login-text" onClick={showLogin}>Go to login</span>
+        <span className="login-text" onClick={() => dispatch(openModal())}>Go to login</span>
       </div>
     </div>
   )

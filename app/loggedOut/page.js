@@ -1,8 +1,8 @@
 import Image from "next/image"
 import login from "app/assets/login.png"
-import { LoginButton } from "../components/loginButton"
+import LoginButton from "../components/loginButton"
 
-export const loggedOut = () => {
+export default function loggedOut() {
 
   return (
     <div className="logged-out">

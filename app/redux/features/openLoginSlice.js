@@ -2,19 +2,25 @@ import { createSlice } from '@reduxjs/toolkit';
 
 const openLoginSlice = createSlice({
  name: 'modal',
- initialState: { isOpen: false },
+ initialState: { isOpen: 0 },
  reducers: {
    openOpen: (state) => {
-      state.isOpen = true
+      state.isOpen = 1
      },
    closeModal: (state) => {
-      state.isOpen = false
+      state.isOpen = 0
+    },
+   registerModal: (state) => {
+      state.isOpen = 2
+    },
+   resetModal: (state) => {
+      state.isOpen = 3
     },
   }
 });
 
 
-export const { openModal, closeModal } = openLoginSlice.actions;
+export const { openModal, closeModal, registerModal, resetModal } = openLoginSlice.actions;
 export default openLoginSlice.reducer;
 
 

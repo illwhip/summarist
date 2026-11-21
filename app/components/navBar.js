@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 
-export const Nav = () => {
+export default function Nav() {
 
   return (
     <nav className="nav">

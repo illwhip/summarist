@@ -1,4 +1,4 @@
-import { loggedOut } from "../components/loggedoutSetting"
+import LoggedOut from "../components/loggedoutSetting"
 
 export default function Settings({ user }) {
 
@@ -6,12 +6,19 @@ export default function Settings({ user }) {
     <main>
       <h2>Settings</h2>
       <div className="divide">
-        <h3>Your Subscription plan</h3>
-        <p>{user.subscriptionStatus}</p>
-      </div>
-      <div className="divide">
-        <h3>Email</h3>
-        <p>{user.email}</p>
+        {!!user ? 
+        <LoggedOut /> 
+        :
+        <>
+          <h3>Your Subscription plan</h3>
+          <p>{user.subscriptionStatus}</p>
+        
+          <div className="divide">
+            <h3>Email</h3>
+            <p>{user.email}</p>
+          </div>
+        </>
+        }
       </div>
     </main>    
   )

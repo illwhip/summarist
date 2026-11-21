@@ -1,6 +1,8 @@
+"use client"
+
 import { useState } from "react"
 
-export const searchBar = () => {
+export default function SearchBar() {
   const [bookSearch, setBookSearch] = useState("")
 
   return (

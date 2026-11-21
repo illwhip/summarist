@@ -1,9 +1,11 @@
 import Book from "../components/book"
+import { getRecommendedBooks, getSelectedBook, getSuggestedBooks } from "../redux/functions"
+
 
 
 export default async function forYou() {
   const selected = await getSelectedBook()
-  const recommended = await getRecommnededBooks()
+  const recommended = await getRecommendedBooks()
   const suggested = await getSuggestedBooks()
 
 
