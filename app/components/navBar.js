@@ -1,4 +1,4 @@
-"use Client"
+"use client"
 
 import Link from "next/link";
 import { useAppDispatch } from "../redux/hooks";
