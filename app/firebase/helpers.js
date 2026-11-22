@@ -7,7 +7,7 @@ import { setUser, clearUser } from '../redux/features/logSlice'
 
 const dispatch = useAppDispatch()
 
-async function register() {
+async function register( email, password ) {
   await createUserWithEmailAndPassword(auth, email, password)
   .then((user) => {
     dispatch(setUser())
@@ -17,7 +17,8 @@ async function register() {
   })
 }
 
-async function logIn() {
+async function logIn( email, password ) {
+  
   await signInWithEmailAndPassword(auth, email, password)
   .then(({ user }) => {
     dispatch(setUser())
@@ -29,8 +30,8 @@ async function logIn() {
 
 async function guestLogIn() {
   await signInAnonymously(auth)
-    .then(() => {
-      dispatch(setUser())
+    .then((user) => {
+      dispatch(setUser(user))
     })
     .catch((error) => {
       console.error("Anonymous sign-in failed:", error.code, "So close");
@@ -40,7 +41,7 @@ async function guestLogIn() {
 async function googleLogin(){
   await signInWithGoogle(auth)
   .then(({ user }) => {
-    dispatch(setUser())
+    dispatch(setUser(user))
   })  
   .catch((error) => {
     console.log(error.code, "Nice Try")
@@ -52,7 +53,7 @@ function logOut() {
   dispatch(clearUser());
 }
 
-function resetPassword({ email }) {
+function resetPassword( email ) {
   console.log(email)
 }
 

@@ -45,7 +45,7 @@ export default function SignUp() {
             />
           <button 
             className="btn"
-            onClick={register({ email, password })}
+            onClick={register( email, password )}
           >
             Sign up
           </button>

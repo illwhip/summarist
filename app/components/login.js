@@ -58,7 +58,7 @@ export default function LoginModal() {
             />
             <button 
               className="btn"
-              onClick={logIn({ email, password })}
+              onClick={logIn( email, password )}
             >
               Login
             </button>
