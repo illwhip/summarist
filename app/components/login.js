@@ -3,7 +3,7 @@
 import Image from 'next/image'
 import google from "@/app/assets/google.png"
 import { BsPersonFill } from "react-icons/bs"
-import { logIn, guestLogIn, googleLogin } from '../firebase/helpers'
+import { logIn, googleLogin } from '../firebase/helpers'
 import { useAppDispatch } from '../redux/hooks'
 import { closeModal, resetModal, registerModal } from '../redux/features/openLoginSlice'
 import { useState } from 'react'
@@ -23,7 +23,7 @@ export default function LoginModal() {
           <h2>Log in to Summarist</h2>
           <button 
             className="btn guest-login"
-            onClick={guestLogIn(dispatch)}
+            onClick={() => logIn("guest@gmail.com", "guest123")}
           >
             <BsPersonFill className="guest-icon"/>
             Login as a Guest
@@ -33,7 +33,7 @@ export default function LoginModal() {
           </div>
           <button 
             className="btn google-login"
-            onClick={googleLogin(dispatch)}
+            onClick={() => googleLogin(dispatch)}
           >
             <Image className="google-icon" src={google} alt="Google icon" />
             Login with Google
@@ -74,7 +74,7 @@ export default function LoginModal() {
         </div>
         <div className="login__base">
           <div 
-            className="login-text" 
+            className="login-text login-closer" 
             onClick={() => dispatch(registerModal())}
           >
               Don't have an account

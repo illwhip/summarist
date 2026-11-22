@@ -1,8 +1,7 @@
 "use client"
 
 import { auth } from "../firebase/init"
-import { signOut, signInWithEmailAndPassword, createUserWithEmailAndPassword, signInAnonymously, signInWithPopup, GoogleAuthProvider } from "firebase/auth"
-import { useAppDispatch } from '../redux/hooks'
+import { signOut, signInWithEmailAndPassword, createUserWithEmailAndPassword, signInWithPopup, GoogleAuthProvider } from "firebase/auth"
 import { setUser, clearUser } from '../redux/features/logSlice'
 
 async function register( email, password, dispatch ) {
@@ -24,18 +23,7 @@ async function logIn( email, password, dispatch ) {
     console.log(error.message)
   }
 }
-
-async function guestLogIn() {
-  try {
-    const { user } = await signInAnonymously(auth)    
-    dispatch(setUser({ uid: user.uid, email: user.email }))
-    }
-    catch(error) {
-      console.error("Anonymous sign-in failed:", error.code, "So close");
-    };
-}
-
-async function googleLogin(){
+async function googleLogin( dispatch ){
   try {
     const { user } = await signInWithPopup(auth, new GoogleAuthProvider())
     dispatch(setUser({ uid: user.uid, email: user.email }))
@@ -45,7 +33,7 @@ async function googleLogin(){
   }
 }
 
-async function logOut(dispatch) {
+async function logOut( dispatch ) {
   await signOut(auth);
   dispatch(clearUser());
 }
@@ -55,4 +43,4 @@ function resetPassword( email ) {
 }
 
 
-export { register, logIn, guestLogIn, googleLogin, logOut, resetPassword }
+export { register, logIn, googleLogin, logOut, resetPassword }
