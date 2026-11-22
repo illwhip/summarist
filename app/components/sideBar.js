@@ -9,6 +9,7 @@ import { LuLogOut } from "react-icons/lu"
 import { logOut } from '../firebase/helpers'
 import { useAppDispatch } from "../redux/hooks"
 import { openModal } from "../redux/features/openLoginSlice"
+import { RiFontSize } from "react-icons/ri"
 
 export default function SideBar() {
   const dispatch = useAppDispatch()
@@ -41,8 +42,24 @@ export default function SideBar() {
             Search
           </Link>
         </div>
-        
-        
+        {bookOpen ? 
+          <div className="link--line">
+            <button className="text-size size-1">
+              <RiFontSize />
+            </button>
+            <button className="text-size size-2">
+              <RiFontSize />
+            </button>
+            <button className="text-size size-3">
+              <RiFontSize />
+            </button>
+            <button className="text-size size-4">
+              <RiFontSize />
+            </button>
+          </div>
+        :
+          null
+        }       
       </div>      
       <div className="sidebar__bottom">
         <div className="link--line">

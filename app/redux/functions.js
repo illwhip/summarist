@@ -27,3 +27,10 @@ export async function getSuggestedBooks() {
   return suggested
 }
 
+export async function getFavoriteBooks() {
+  console.log("favorites")
+}
+
+export async function getFinishedBooks() {
+  console.log("read")
+}

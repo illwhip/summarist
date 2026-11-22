@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import login from "app/assets/login.png"
 
-export default function LoggedOut() {
+export default function LoggedOutSettings() {
 
   return (
     <div className='logged-out'>

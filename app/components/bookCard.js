@@ -1,5 +1,5 @@
 
-export default function Book({ book }){
+export default function BookCard({ book }){
 
   return (
     <div className="book-card">
