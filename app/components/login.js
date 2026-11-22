@@ -6,7 +6,7 @@ import { BsPersonFill } from "react-icons/bs"
 import { logIn, guestLogIn, googleLogin } from '../firebase/helpers'
 import { useAppDispatch } from '../redux/hooks'
 import { closeModal, resetModal, registerModal } from '../redux/features/openLoginSlice'
-import "../styles/login.css"
+import { useState } from 'react'
 
 
 export default function LoginModal() { 
@@ -23,7 +23,7 @@ export default function LoginModal() {
           <h2>Log in to Summarist</h2>
           <button 
             className="btn guest-login"
-            onClick={guestLogIn}
+            onClick={guestLogIn(dispatch)}
           >
             <BsPersonFill className="guest-icon"/>
             Login as a Guest
@@ -33,7 +33,7 @@ export default function LoginModal() {
           </div>
           <button 
             className="btn google-login"
-            onClick={googleLogin}
+            onClick={googleLogin(dispatch)}
           >
             <Image className="google-icon" src={google} alt="Google icon" />
             Login with Google
@@ -41,7 +41,12 @@ export default function LoginModal() {
           <div className="space">
             <span className="space--text">or</span>
           </div>
-          <form className="login--info">
+          <form 
+            className="login--info" 
+            onSubmit={(e) => {
+              e.preventDefault()
+              logIn(email, password, dispatch)
+            }}>
             <input
               className="login--input"
               value={email}
@@ -56,10 +61,7 @@ export default function LoginModal() {
               placeholder="Password"
               onChange={(e) => {setPassword(e.target.value)}}
             />
-            <button 
-              className="btn"
-              onClick={logIn( email, password )}
-            >
+            <button className="btn">
               Login
             </button>
           </form>

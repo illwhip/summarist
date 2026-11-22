@@ -6,14 +6,19 @@ import { resetPassword } from '../firebase/helpers'
 export default function ResetPassword() {
   const dispatch = useAppDispatch()
 
-  const [email, setEmail] = useState()
+  const [email, setEmail] = useState("")
   
   return (
     <div className="login reset__password">
       <button className="close-btn" onClick={() => dispatch(closeModal())}>✕</button>
       <div className="login--content">
         <h2>Reset your password</h2>
-        <form className="login--info">
+        <form 
+            className="login--info" 
+            onSubmit={(e) => {
+              e.preventDefault()
+              resetPassword(email, password, dispatch)
+            }}>
           <input
             className="login--input"
             value={email}

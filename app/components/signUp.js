@@ -2,7 +2,7 @@
 
 import Image from 'next/image'
 import google from "/app/assets/google.png"
-import { register } from '../firebase/helpers'
+import { register, googleLogin } from '../firebase/helpers'
 import { useAppDispatch } from '../redux/hooks'
 import { closeModal, openModal } from '../redux/features/openLoginSlice'
 import { useState } from 'react'
@@ -10,8 +10,8 @@ import { useState } from 'react'
 export default function SignUp() {  
   const dispatch = useAppDispatch()
 
-  const [email, setEmail] = useState()
-  const [password, setPassword] = useState()
+  const [email, setEmail] = useState("")
+  const [password, setPassword] = useState("")
 
   return (
     <div className="login">
@@ -20,7 +20,7 @@ export default function SignUp() {
         <h2>Sign up to Summarist</h2>
         <button 
           className="btn google-login"
-          // onClick={googleLogin}
+          onClick={googleLogin}
         >
           <Image className="google-icon" src={google} alt="Google icon" />
           Sign up with Google
@@ -28,7 +28,12 @@ export default function SignUp() {
         <div className="space">
           <span className="space--text">or</span>
         </div>
-        <form className="login--info">
+        <form 
+            className="login--info" 
+            onSubmit={(e) => {
+              e.preventDefault()
+              register(email, password, dispatch)
+            }}>
           <input
               className="login--input"
               value={email}
@@ -43,10 +48,7 @@ export default function SignUp() {
               placeholder="Password"
               onChange={(e) => setPassword(e.target.value)}
             />
-          <button 
-            className="btn"
-            onClick={register( email, password )}
-          >
+          <button className="btn">
             Sign up
           </button>
         </form>

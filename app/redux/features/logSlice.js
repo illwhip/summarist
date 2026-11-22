@@ -2,15 +2,11 @@ import { createSlice } from '@reduxjs/toolkit';
 
 const logSlice = createSlice({
  name: 'user',
- initialState: {},
+ initialState: null,
  reducers: {
-   setUser: (user) => {
-      user = { uid: user.uid, email: user.email }
-     },
-   clearUser: (user) => {
-      user = {}
-    },
-  }
+   setUser: (state, action) => action.payload,
+   clearUser: () => null,
+    }
 });
 
 

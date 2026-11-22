@@ -63,7 +63,7 @@ export default function SideBar() {
               !!user ? 
                () => dispatch(openModal())
               : 
-              logOut
+              () => logOut(dispatch)
             }
           >
             <LuLogOut />

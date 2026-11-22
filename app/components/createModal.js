@@ -4,6 +4,7 @@ import { useAppSelector } from "../redux/hooks";
 import LoginModal from '../components/login'
 import ResetPassword from '../components/resetPassword';
 import SignUp from '../components/signUp';
+import "../styles/login.css"
 
 export default function CreateModal() {
   const isOpen = useAppSelector((state) => state.modal.isOpen)
