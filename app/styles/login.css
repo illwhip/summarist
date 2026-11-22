@@ -1,8 +1,3 @@
-* {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
-}
 
 .login {
   position: absolute;
@@ -11,51 +6,152 @@
   transform: translate(-50%, -50%);
   display: flex;
   flex-direction: column;
-  background: white;
-  border-radius: 1rem;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff;
+  border-radius: 8px;
   overflow: hidden;
+  min-width: 400px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.login--content {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 48px 32px 24px;
 }
 
 .close-btn {
-  text-align: end;
-  margin: 1rem;
+  position: absolute;
+  top: 12px;
+  right: 12px;
   font-weight: 700;
   font-size: 1.5rem;
+  transition: opacity .2s;
+}
+
+.close-btn:hover {
+  opacity: .5;
+}
+
+.login h2 {
+  text-align: center;
+  font-size: 20px;
+  font-weight: 700;
+  color: #032b41;
+  margin-bottom: 24px;
 }
 
 .guest-login {
   border: 1px solid black;
+  background-color: #3a579d;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+
+.guest-login:hover {
+  background-color: #25396b !important;
+}
+
+.guest-icon {
+  height: 36px;
+  width: 36px;
+  position: absolute;
+  left: 2;
 
 }
 
 .google-login {
   display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-  text-align: center;
+  position: relative;
+  background-color: #4285f4;
+  color: #fff;
+  justify-content: center;
+}
+
+.google-login:hover {
+  background-color: #3367d6 !important;
 }
 
 .google-icon {
-  width: 35px;
-  height: auto;
+  width: 36px;
+  height: 36px;
+  border-radius: 4px;
+  background-color: #fff;
+  position: absolute;
+  left: 2px;
 
+}
+
+.login--info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  width: 100%;
+}
+
+.login--input {
+  width: 100%;
+  height: 40px;
+  border: 2px solid #bac8ce;
+  border-radius: 4px;
+  color: #394547;
+  padding: 0 12px;
 }
 
 .space {
   display: flex;
-  justify-content: center;
   align-items: center;
-  margin: 0 auto;
+  margin: 16px 0;
+}
+
+.space--text {
+  margin: 0 24px;
+  font-size: 14px;
+  color: #394547;
+  font-weight: 500;
+}
+
+.space--text::before,
+.space--text::after {
+  content: "";
+  display: block;
+  flex-grow: 1;
+  height: 1px;
+  background: #bac8ce;
 }
 
 .login-text {
   cursor: pointer;
   text-align: center;
-  padding: 0.75rem;
+  margin: 16 16;
+  width: fit-content;
+  font-size: 14px;
+  font-weight: 300;
+  color: #116be9;
 }
 
 .login__base {
-  background: lightgrey; 
-  text-align: center; 
-  padding: 0.75rem;
+  background: #f1f6f4; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 40px;
+  width: 100%;
+  font-size: 16px;  
+}
+
+.login__base:hover {
+  background-color: #e1e9e8;
+}
+
+.login-closer {
+  font-size: 16px;
 }
