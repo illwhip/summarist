@@ -115,6 +115,7 @@
 .space {
   display: flex;
   align-items: center;
+  width: 100%;
   margin: 16px 0;
 }
 
@@ -125,8 +126,8 @@
   font-weight: 500;
 }
 
-.space--text::before,
-.space--text::after {
+.space::before,
+.space::after {
   content: "";
   display: block;
   flex-grow: 1;

@@ -5,10 +5,14 @@ import google from "/app/assets/google.png"
 import { register } from '../firebase/helpers'
 import { useAppDispatch } from '../redux/hooks'
 import { closeModal, openModal } from '../redux/features/openLoginSlice'
+import { useState } from 'react'
 
 export default function SignUp() {  
   const dispatch = useAppDispatch()
-  
+
+  const [email, setEmail] = useState()
+  const [password, setPassword] = useState()
+
   return (
     <div className="login">
       <button className="close-btn" onClick={() => dispatch(closeModal())}>✕</button>      
@@ -26,20 +30,22 @@ export default function SignUp() {
         </div>
         <form className="login--info">
           <input
-            className="login--input"
-            value="email"
-            type="email"
-            placeholder="Email Address"
-          />
-          <input 
-            className="login--input"
-            value="password"
-            type="password"
-            placeholder="Password"
-          />
+              className="login--input"
+              value={email}
+              type="email"
+              placeholder="Email Address"
+              onChange={(e) => setEmail(e.target.value)}
+            />
+            <input 
+              className="login--input"
+              value={password}
+              type="password"
+              placeholder="Password"
+              onChange={(e) => setPassword(e.target.value)}
+            />
           <button 
             className="btn"
-            onClick={register}
+            onClick={register({ email, password })}
           >
             Sign up
           </button>

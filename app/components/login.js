@@ -3,14 +3,17 @@
 import Image from 'next/image'
 import google from "@/app/assets/google.png"
 import { BsPersonFill } from "react-icons/bs"
-import { logIn } from '../firebase/helpers'
+import { logIn, guestLogIn, googleLogin } from '../firebase/helpers'
 import { useAppDispatch } from '../redux/hooks'
 import { closeModal, resetModal, registerModal } from '../redux/features/openLoginSlice'
 import "../styles/login.css"
 
 
 export default function LoginModal() { 
-  const dispatch = useAppDispatch() 
+  const dispatch = useAppDispatch()
+  
+  const [email, setEmail] = useState("")
+  const [password, setPassword] = useState("")
 
   return (
     <div className="login--wrapper">
@@ -20,7 +23,7 @@ export default function LoginModal() {
           <h2>Log in to Summarist</h2>
           <button 
             className="btn guest-login"
-            // onClick={guestLogin}
+            onClick={guestLogIn}
           >
             <BsPersonFill className="guest-icon"/>
             Login as a Guest
@@ -30,7 +33,7 @@ export default function LoginModal() {
           </div>
           <button 
             className="btn google-login"
-            // onClick={googleLogin}
+            onClick={googleLogin}
           >
             <Image className="google-icon" src={google} alt="Google icon" />
             Login with Google
@@ -41,17 +44,21 @@ export default function LoginModal() {
           <form className="login--info">
             <input
               className="login--input"
+              value={email}
               type="email"
               placeholder="Email Address"
+              onChange={(e) => {setEmail(e.target.value)}}
             />
             <input 
               className="login--input"
+              value={password}
               type="password"
               placeholder="Password"
+              onChange={(e) => {setPassword(e.target.value)}}
             />
             <button 
               className="btn"
-              onClick={logIn}
+              onClick={logIn({ email, password })}
             >
               Login
             </button>

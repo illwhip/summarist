@@ -5,37 +5,57 @@ import { signOut, signInWithEmailAndPassword, createUserWithEmailAndPassword } f
 import { useAppDispatch } from '../redux/hooks'
 import { setUser, clearUser } from '../redux/features/logSlice'
 
-export function logIn() {
-  signInWithEmailAndPassword(auth, email, password)
-  .then(() => {
-  dispatch(setUser());
+const dispatch = useAppDispatch()
+
+async function register() {
+  await createUserWithEmailAndPassword(auth, email, password)
+  .then((user) => {
+    dispatch(setUser())
   })
   .catch((error) => {
     console.log(error.message)
   })
 }
 
-export function logOut() {
-  signOut();
-  dispatch(clearUser());
-}
-
-export function register() {
-  createUserWithEmailAndPassword(auth, email, password)
-  .then(() => {
-  dispatch(setUser());
+async function logIn() {
+  await signInWithEmailAndPassword(auth, email, password)
+  .then(({ user }) => {
+    dispatch(setUser())
   })
   .catch((error) => {
     console.log(error.message)
   })
 }
 
-export function guestLogIn() {
-  signInAnonymously(auth)
+async function guestLogIn() {
+  await signInAnonymously(auth)
     .then(() => {
       dispatch(setUser())
     })
     .catch((error) => {
-      console.error("Anonymous sign-in failed:", error.code, error.message);
+      console.error("Anonymous sign-in failed:", error.code, "So close");
     });
 }
+
+async function googleLogin(){
+  await signInWithGoogle(auth)
+  .then(({ user }) => {
+    dispatch(setUser())
+  })  
+  .catch((error) => {
+    console.log(error.code, "Nice Try")
+  })
+}
+
+function logOut() {
+  signOut();
+  dispatch(clearUser());
+}
+
+function resetPassword({ email }) {
+  console.log(email)
+}
+
+
+
+export { register, logIn, guestLogIn, googleLogin, logOut, resetPassword }
