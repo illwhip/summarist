@@ -22,6 +22,7 @@ async function logIn( email, password, dispatch ) {
     const { user } = await signInWithEmailAndPassword(auth, email, password)
     dispatch(setUser({ uid: user.uid, email: user.email }))
     router.push("/userPage")
+    dispatch(clearUser())
   }
   catch(error) {
     console.log(error.message)
