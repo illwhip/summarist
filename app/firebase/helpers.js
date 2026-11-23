@@ -15,7 +15,7 @@ async function register( email, password, dispatch ) {
   }
 }
 
-async function logIn( email, password, dispatch ) {
+async function logIn( email, password, dispatch, router ) {
   
   try {
     const { user } = await signInWithEmailAndPassword(auth, email, password)
