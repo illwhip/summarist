@@ -6,6 +6,7 @@ import ForYou from "../forYou/page"
 import LoggedOut from "../components/loggedoutSetting";
 import Book from "../book/page";
 import BookPlayer from "../bookPlayer/page";
+import Player from "../components/player";
 
 
 export function UserPage(){
@@ -20,7 +21,7 @@ export function UserPage(){
         <Route path="/settings" element={<Settings /> } />
         <Route path="/book/id" element={<Book /> } />
         <Route path="/bookPlayer/id" element={<BookPlayer /> } />
-
+        <Player />
       </Routes>
     </div>
   )

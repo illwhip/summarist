@@ -61,7 +61,7 @@ export default function LoginModal() {
               placeholder="Password"
               onChange={(e) => {setPassword(e.target.value)}}
             />
-            <button className="btn">
+            <button className="btn" type="submit">
               Login
             </button>
           </form>

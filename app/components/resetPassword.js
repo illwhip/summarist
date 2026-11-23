@@ -27,7 +27,7 @@ export default function ResetPassword() {
               placeholder="Email address"
               onChange={(e) => setEmail(e.target.value)}
             />
-            <button className="btn">
+            <button className="btn" type="submit">
               Send reset password link
             </button>
           </form>

@@ -14,47 +14,49 @@ export default function SignUp() {
   const [password, setPassword] = useState("")
 
   return (
-    <div className="login">
-      <button className="close-btn" onClick={() => dispatch(closeModal())}>✕</button>      
-      <div className="login--content">
-        <h2>Sign up to Summarist</h2>
-        <button 
-          className="btn google-login"
-          onClick={googleLogin}
-        >
-          <Image className="google-icon" src={google} alt="Google icon" />
-          Sign up with Google
-        </button>
-        <div className="space">
-          <span className="space--text">or</span>
-        </div>
-        <form 
-            className="login--info" 
-            onSubmit={(e) => {
-              e.preventDefault()
-              register(email, password, dispatch)
-            }}>
-          <input
-              className="login--input"
-              value={email}
-              type="email"
-              placeholder="Email Address"
-              onChange={(e) => setEmail(e.target.value)}
-            />
-            <input 
-              className="login--input"
-              value={password}
-              type="password"
-              placeholder="Password"
-              onChange={(e) => setPassword(e.target.value)}
-            />
-          <button className="btn">
-            Sign up
+    <div className="login--wrapper">
+      <div className="login">
+        <button className="close-btn" onClick={() => dispatch(closeModal())}>✕</button>      
+        <div className="login--content">
+          <h2>Sign up to Summarist</h2>
+          <button 
+            className="btn google-login"
+            onClick={googleLogin}
+          >
+            <Image className="google-icon" src={google} alt="Google icon" />
+            Sign up with Google
           </button>
-        </form>
-      </div>
-      <div className="login__base">
-        <span className="login-text login-closer" onClick={() => dispatch(openModal())}>Already have an account?</span>
+          <div className="space">
+            <span className="space--text">or</span>
+          </div>
+          <form 
+              className="login--info" 
+              onSubmit={(e) => {
+                e.preventDefault()
+                register(email, password, dispatch)
+              }}>
+            <input
+                className="login--input"
+                value={email}
+                type="email"
+                placeholder="Email Address"
+                onChange={(e) => setEmail(e.target.value)}
+              />
+              <input 
+                className="login--input"
+                value={password}
+                type="password"
+                placeholder="Password"
+                onChange={(e) => setPassword(e.target.value)}
+              />
+            <button className="btn" type ="submit">
+              Sign up
+            </button>
+          </form>
+        </div>
+        <div className="login__base">
+          <span className="login-text login-closer" onClick={() => dispatch(openModal())}>Already have an account?</span>
+        </div>
       </div>
     </div>
   )

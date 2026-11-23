@@ -7,6 +7,8 @@ import { useState } from 'react';
 const [selected, setSelected] = useState([])
 const [recommended, setRecommended] = useState([])
 const [suggested, setSuggested] = useState([])
+const [favorites, setFavorites] = useState([])
+const [finished, setFinished] = useState([])
 
 
 export async function getSelectedBook() {
@@ -28,9 +30,13 @@ export async function getSuggestedBooks() {
 }
 
 export async function getFavoriteBooks() {
-  console.log("favorites")
+  const { data } = await axios.get("https://us-central1-summaristt.cloudfunctions.net/getBooks?status=suggested")
+  setFavorites(data)
+  return favorites
 }
 
 export async function getFinishedBooks() {
-  console.log("read")
+  const { data } = await axios.get("https://us-central1-summaristt.cloudfunctions.net/getBooks?status=suggested")
+  setFinished(data)
+  return finished
 }

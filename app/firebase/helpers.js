@@ -3,6 +3,7 @@
 import { auth } from "../firebase/init"
 import { signOut, signInWithEmailAndPassword, createUserWithEmailAndPassword, signInWithPopup, GoogleAuthProvider } from "firebase/auth"
 import { setUser, clearUser } from '../redux/features/logSlice'
+import { useRouter } from "next/navigation"
 
 async function register( email, password, dispatch ) {
   try {
@@ -15,9 +16,12 @@ async function register( email, password, dispatch ) {
 }
 
 async function logIn( email, password, dispatch ) {
+  const router = useRouter()
+
   try {
     const { user } = await signInWithEmailAndPassword(auth, email, password)
     dispatch(setUser({ uid: user.uid, email: user.email }))
+    router.push("/userPage")
   }
   catch(error) {
     console.log(error.message)
