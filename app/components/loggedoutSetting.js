@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import login from "app/assets/login.png"
+import login from "/app/assets/login.png"
 
 export default function LoggedOutSettings() {
 
