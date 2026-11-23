@@ -1,9 +1,15 @@
 "use client"
 
-import { useState } from "react"
+import { useEffect, useState } from "react"
+import { getSearchBooks } from "../redux/functions"
 
 export default function SearchBar() {
-  const [bookSearch, setBookSearch] = useState("")
+  const [bookSearch, setBookSearch] = useState([])
+  const search = getSearchBooks()
+
+  useEffect(() => {
+    setBookSearch(search)
+  }, [bookSearch])
 
   return (
     <div className="search__bar">
@@ -13,7 +19,7 @@ export default function SearchBar() {
         value={bookSearch}
         onChange={(event) => setBookSearch(event.target.value)}
         placeholder="Search other movies"
-        onKeyDown={searchMovies}
+        onKeyDown={getSearchBooks}
       ></input>
       <div data-v-390ceb07="" className="search-wrapper">
         <svg
@@ -26,7 +32,7 @@ export default function SearchBar() {
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 512 512"
           className="svg-inline--fa fa-search fa-w-16"
-          onClick={getSearchedBooks}
+          onClick={getSearchBooks}
         >
           <path
             data-v-390ceb07=""

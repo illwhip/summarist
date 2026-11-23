@@ -7,12 +7,16 @@ import { BsBookmark } from "react-icons/bs"
 import { CiSettings } from "react-icons/ci"
 import { LuLogOut } from "react-icons/lu"
 import { logOut } from '../firebase/helpers'
-import { useAppDispatch } from "../redux/hooks"
+import { useAppDispatch, useAppSelector } from "../redux/hooks"
 import { openModal } from "../redux/features/openLoginSlice"
 import { RiFontSize } from "react-icons/ri"
+import Link from "next/link"
+
 
 export default function SideBar() {
   const dispatch = useAppDispatch()
+  const bookOpen = useAppSelector((state) => state.textSize.bookOpen)
+  const user = useAppSelector((state) => state.user)
   
   return (
     <div className="sidebar">

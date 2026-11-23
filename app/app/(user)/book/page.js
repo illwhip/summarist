@@ -15,28 +15,28 @@ export default function Book({ book }) {
       <div className="book--info">
         <h2>{book.title}</h2>
         <h3>{book.author}</h3>
-        <p>{book.slogan}</p>
+        <p>{book.subTitle}</p>
         <div className="book--stats">
           <div className="book--rating">
             <FaRegStar />
-            <span>{book.rating} ({book.ratingCount})</span>
+            <span>{book.averageRating} ({book.totalRating})</span>
           </div>
           <div className="book--media">
             <SlMicrophone />
-            <span>Audio & Text</span>
+            <span>{book.type}</span>
           </div>
           <div className="book--time">
             <LuClock />
-            <span>{book.time}</span>
+            <span>{book.tags.time}</span>
           </div>
           <div className="book--ideas">
             <HiOutlineLightBulb />
-            <span>{book.ideas} Key ideas</span>
+            <span>{book.keyIdeas} Key ideas</span>
           </div>
         </div>
         <div className="book--options">
-          <button className="read__book"><LuBookOpenText /> Read</button>
-          <button className="listen__book"><SlMicrophone /> Listen </button>
+          <button className="read__book" onClick={() => dispatchEvent(bookOpen)}><LuBookOpenText /> Read</button>
+          <button className="listen__book" onClick={() => dispatchEvent(bookOpen)}><SlMicrophone /> Listen </button>
         </div>
         {isFavorite ?  
           <button 

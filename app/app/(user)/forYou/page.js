@@ -1,6 +1,7 @@
 
-import BookCard from "../components/bookCard"
-import { getRecommendedBooks, getSelectedBook, getSuggestedBooks } from "../redux/functions"
+import BookCard from "@/app/components/bookCard"
+import { getRecommendedBooks, getSelectedBook, getSuggestedBooks } from "@/app/redux/functions"
+
 
 
 
@@ -31,7 +32,7 @@ export default async function ForYou() {
         <h2>Recommended For You</h2>
         <p>We think you'll like these</p>
         <div className="recommended-row">
-          {recommended.map((book) => <BookCard book={book}/>)}
+          {recommended.map((book) => <BookCard book={book} key={book.id}/>)}
         </div>
       </div>
 
@@ -40,7 +41,7 @@ export default async function ForYou() {
         <p>Browse those books</p>        
       </div>
       <div className="suggested-row">
-        {suggested.map((book) => <BookCard book={book} />)}
+        {suggested.map((book) => <BookCard book={book} key={book.id}/>)}
       </div>
     </main>
   )

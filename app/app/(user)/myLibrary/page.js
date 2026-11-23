@@ -20,7 +20,7 @@ export default async function forYou() {
           <p>When you save a book, it will appear here.</p>
         </div>
         :
-        favorites.map((book) => <BookCard book={book}/>)
+        favorites.map((book) => <BookCard book={book} key={book.id}/>)
         }        
       </div>
       <div className="finished-books">
@@ -34,7 +34,7 @@ export default async function forYou() {
             <p>When you finish a book, you can find it here later.</p>
           </div>
         :
-          finished.map((book) => <BookCard book={book} />)
+          finished.map((book) => <BookCard book={book} key={book.id} />)
         }        
       </div>
     </main>

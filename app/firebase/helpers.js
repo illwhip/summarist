@@ -21,7 +21,7 @@ async function logIn( email, password, dispatch, router ) {
     const { user } = await signInWithEmailAndPassword(auth, email, password)
     dispatch(setUser({ uid: user.uid, email: user.email }))
     dispatch(closeModal())
-    router.push("/forYou")
+    router.push("/app/forYou")
   }
   catch(error) {
     console.log(error.message)
