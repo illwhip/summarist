@@ -7,10 +7,12 @@ import { logIn, googleLogin } from '../firebase/helpers'
 import { useAppDispatch } from '../redux/hooks'
 import { closeModal, resetModal, registerModal } from '../redux/features/openLoginSlice'
 import { useState } from 'react'
+import { useRouter } from 'next/navigation'
 
 
 export default function LoginModal() { 
   const dispatch = useAppDispatch()
+  const router = useRouter()
   
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
@@ -23,7 +25,7 @@ export default function LoginModal() {
           <h2>Log in to Summarist</h2>
           <button 
             className="btn guest-login"
-            onClick={() => logIn("guest@gmail.com", "guest123")}
+            onClick={() => logIn("guest@gmail.com", "guest123", dispatch, router)}
           >
             <BsPersonFill className="guest-icon"/>
             Login as a Guest
@@ -45,7 +47,7 @@ export default function LoginModal() {
             className="login--info" 
             onSubmit={(e) => {
               e.preventDefault()
-              logIn(email, password, dispatch)
+              logIn(email, password, dispatch, router)
             }}>
             <input
               className="login--input"
