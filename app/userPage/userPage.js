@@ -12,7 +12,7 @@ import Player from "../components/player";
 export function UserPage(){
 
   return (
-    <div>
+    <>
       <SearchBar />
       <SideBar />
       <Routes>
@@ -23,6 +23,6 @@ export function UserPage(){
         <Route path="/bookPlayer/id" element={<BookPlayer /> } />
         <Player />
       </Routes>
-    </div>
+    </>
   )
 }

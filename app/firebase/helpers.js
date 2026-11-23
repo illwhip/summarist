@@ -16,9 +16,9 @@ async function register( email, password, dispatch ) {
 }
 
 async function logIn( email, password, dispatch ) {
-  const router = useRouter()
-
+  
   try {
+    const router = useRouter()
     const { user } = await signInWithEmailAndPassword(auth, email, password)
     dispatch(setUser({ uid: user.uid, email: user.email }))
     router.push("/userPage")
