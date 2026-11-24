@@ -11,7 +11,8 @@ import { useAppDispatch, useAppSelector } from "../redux/hooks"
 import { openModal } from "../redux/features/openLoginSlice"
 import { RiFontSize } from "react-icons/ri"
 import Link from "next/link"
-
+import Image from "next/image"
+import logo from "/public/logo.png"
 
 export default function SideBar() {
   const dispatch = useAppDispatch()
@@ -20,7 +21,7 @@ export default function SideBar() {
   
   return (
     <div className="sidebar">
-      <img src="public/logo.png" alt="Summarist Icon" />
+      <Image className="logo--img" src={logo} alt="Summarist Icon" />
       <div className="sidebar__top">
         <div className="link--line">
           <Link href="/forYou">
