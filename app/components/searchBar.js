@@ -1,19 +1,14 @@
 "use client"
 
-import { useEffect, useState } from "react"
+import { useState } from "react"
 import { getSearchBooks } from "../redux/functions"
 import { IoSearch } from "react-icons/io5"
 import Image from "next/image"
 import logo from "/public/logo.png"
 
 export default function SearchBar() {
-  const [bookSearch, setBookSearch] = useState([])
-  const search = getSearchBooks()
-
-  useEffect(() => {
-    setBookSearch(search)
-  }, [bookSearch])
-
+  const [bookSearch, setBookSearch] = useState("")
+  
   return (
     <>
       <div className="search--bar">
