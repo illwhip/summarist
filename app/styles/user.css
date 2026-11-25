@@ -314,7 +314,7 @@ body {
   border-top: 1px solid #e1e7ea;
   text-align: left;
   padding: 34px 0;
-  
+  gap: 8px;
 }
 
 .selected--book {
