@@ -31,3 +31,4 @@ export async function getSearchBooks() {
   const { data } = await axios.get("https://us-central1-summaristt.cloudfunctions.net/getBooks?status=suggested")
   return data
 }
+
