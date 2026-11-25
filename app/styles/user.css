@@ -17,6 +17,9 @@ html::-webkit-scrollbar {
   display: none;
 }
 
+body {
+  position: relative;
+}
 
 /* Search Bar Component */
 
@@ -108,7 +111,7 @@ html::-webkit-scrollbar {
   top: 0;
   background-color: #000000bf;
   position: absolute;
-  z-index: 2;
+  z-index: 20;
 }
 
 .sidebar {
@@ -121,6 +124,15 @@ html::-webkit-scrollbar {
   height: 100vh;
   z-index: 1;
   transition: all .3s;
+}
+
+.sidebar--wrapper {  
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: calc(100vh - 60px);
+  padding-bottom: 20px;
+  overflow-y: auto;
 }
 
 .sidebar--top {
@@ -178,16 +190,7 @@ html::-webkit-scrollbar {
   font-size: 16px;
 }
 
-@media (max-width: 768px) {
-  .sidebar--wrapper {  
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    height: calc(100vh - 60px);
-    padding-bottom: 20px;
-    overflow-y: auto;
-  }
-  
+@media (max-width: 768px) { 
   .sidebar {
     width: 400px;
     z-index: 1000;
@@ -195,7 +198,7 @@ html::-webkit-scrollbar {
   }
 
   .sidebar--open {
-    transform: translateX(0%)
+    transform: translateX(0%);
   }
 }
 

@@ -2,11 +2,11 @@ import BookCard from "@/app/components/bookCard"
 import { getFavoriteBooks, getFinishedBooks } from "@/app/redux/functions"
 
 
-export default async function forYou() {
+export default async function MyLibrary() {
   const favorites = await getFavoriteBooks()
   const finished = await getFinishedBooks()
 
-  return(
+  return (
     <main>
       <div className="saved-books">
         <h1>Saved Books</h1>
