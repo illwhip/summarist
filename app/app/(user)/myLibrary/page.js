@@ -1,6 +1,5 @@
-import BookCard from "../components/bookCard"
-import { getFavoriteBooks, getFinishedBooks } from "../redux/functions"
-
+import BookCard from "@/app/components/bookCard"
+import { getFavoriteBooks, getFinishedBooks } from "@/app/redux/functions"
 
 
 export default async function forYou() {
