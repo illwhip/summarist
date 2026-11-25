@@ -20,7 +20,7 @@ export default function SideBar() {
   const user = useAppSelector((state) => state.user)
   
   return (
-    <div className="sidebar--open">
+    <div className="sidebar--open backdrop">
       <div className="sidebar">
         <Image className="logo--img" src={logo} alt="Summarist Icon" />
         <div className="sidebar--wrapper">
