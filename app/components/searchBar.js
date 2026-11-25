@@ -12,7 +12,9 @@ export default function SearchBar() {
   return (
     <>
       <div className="search--bar">
-        <Image className="logo--img search--bar--logo" src={logo} alt="Summarist Icon" />
+        <figure className="logo--img-wrapper">
+          <Image className="logo--img search--bar--logo" src={logo} alt="Summarist Icon" />
+        </figure>
         <div className="search--bar--wrapper">
           <form className="search--form" onSubmit={getSearchBooks}>
             <input

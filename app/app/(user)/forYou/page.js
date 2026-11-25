@@ -28,7 +28,7 @@ export default async function ForYou() {
                   <div className="selected--book--play">
                     <FaPlayCircle />
                   </div>
-                  <p className="selected--book--time">{book.tag}</p>
+                  <p className="selected--book--time">{book.tag}mins {book.tag} secs</p>
                 </div>
               </div>
             </div>

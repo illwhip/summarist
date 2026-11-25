@@ -3,23 +3,24 @@ import LoggedOutSettings from "@/app/components/loggedoutSetting"
 export default function Settings({ user }) {
 
   return (
-    <main>
-      <h2>Settings</h2>
-      <div className="divide">
+    <div className="settings--container">
+      <h2 className="settings--heading">Settings</h2>
+      <div className="user--info">
         {!!user ? 
         <LoggedOutSettings /> 
         :
         <>
-          <h3>Your Subscription plan</h3>
-          <p>user.subscriptionStatus</p>
-        
-          <div className="divide">
-            <h3>Email</h3>
-            <p>user.email</p>
+          <div className="user--info--sub">
+            <h3 className="user--heading">Your Subscription plan</h3>
+            <p className="user--para">user.subscriptionStatus</p>
+          </div>
+          <div className="user--info--sub">
+            <h3 className="user--heading">Email</h3>
+            <p className="user--para">user.email</p>
           </div>
         </>
         }
       </div>
-    </main>    
+    </div>    
   )
 }
