@@ -1,7 +1,11 @@
 .logo--img {
-  height: 30px;
-  width: auto;
-  margin: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 60px;
+  padding-top: 16px;
+  max-width: 160px;
+  margin: 0 auto;
 }
 
 html {
@@ -12,7 +16,6 @@ html {
 html::-webkit-scrollbar {
   display: none;
 }
-
 
 
 /* Search Bar Component */
@@ -98,6 +101,106 @@ html::-webkit-scrollbar {
 
 
 /* SideBar Component  */
+
+.sidebar {
+  background-color: #f7faf9;
+  width: 200px;
+  min-width: 200px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  z-index: 1000;
+  transition: all .3s;
+}
+
+.sidebar--wrapper {  
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: calc(100vh - 60px);
+  padding-bottom: 20px;
+  overflow-y: auto;
+}
+
+.sidebar--top {
+  flex: 1 1;
+  margin-top: 40px;
+}
+
+.active--tab {
+  width: 5px;
+  height: 100%;
+  background-color: transparent;
+  margin-right: 16px;
+}
+
+.active--tab--on {
+  background-color: #2bd97c; 
+}
+
+.link--line {
+  display: flex;
+  align-items: center;
+  height: 56px;
+  color: #032b41;
+  margin-bottom: 8px;
+  cursor: pointer;
+}
+
+.active:hover {
+  background-color: #f0efef;
+}
+
+.inactive {
+  cursor: not-allowed;
+}
+
+.sidebar--link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.sidebar--link--icon--wrapper {
+  display: flex;
+  justify-content: center;
+  font-size: 24px;
+  align-items: center;
+  margin-right: 8px;
+}
+
+.sidebar--log--btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #032b41;
+  font-size: 16px;
+}
+
+
+
+
+
+@media (max-width: 768px) {
+  .sidebar {
+    width: 400px;
+    /* transform: translateX(-100%); */
+  }
+
+  .sidebar--open {
+    transform: translateX(0%)
+  }
+
+  .sidebar--backdrop {
+    width: 100vw;
+    height: 100%;
+    top: 0;
+    background-color: #000000bf;
+    position: absolute;
+    z-index: 2;
+  }
+}
 
 
 /* BookCard Component */
