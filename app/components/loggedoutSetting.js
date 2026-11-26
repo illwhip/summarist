@@ -1,15 +1,19 @@
+"use client"
+
 import Image from 'next/image'
 import login from "/app/assets/login.png"
 import LoginButton from './loginButton'
+import { useParams } from 'next/navigation'
 
 export default function LoggedOutSettings() {
-
+  const { page } = useParams()
+  
   return (
     <div className="logged--out">
       <figure className="logged--out--img--wrapper">
         <Image className="logged--out--img" src={login} alt="login" />
       </figure>
-      <h2 className="logged--out--text">Log in to your account to see your details.</h2>
+      <h2 className="logged--out--text">Log in to your account to see your {page == "settings" ? "details" : "library" }.</h2>
       <LoginButton />
     </div>
   )
