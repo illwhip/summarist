@@ -22,7 +22,9 @@ export default function SideBar() {
   return (
     <div className="sidebar--open">
       <div className="sidebar">
-        <Image className="logo--img" src={logo} alt="Summarist Icon" />
+        <figure className="logo--img--wrapper">
+          <Image className="logo--img" src={logo} alt="Summarist Icon" />
+        </figure>
         <div className="sidebar--wrapper">
           <div className="sidebar--top">
             <div className="link--line active">

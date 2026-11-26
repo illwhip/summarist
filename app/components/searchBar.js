@@ -13,7 +13,7 @@ export default function SearchBar() {
     <>
       <div className="search--bar">
         <div className="search--bar--container">
-          <figure className="logo--img-wrapper">
+          <figure className="logo--img--wrapper">
             <Image className="logo--img search--bar--logo" src={logo} alt="Summarist Icon" />
           </figure>
           <div className="search--bar--wrapper">
