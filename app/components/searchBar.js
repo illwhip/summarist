@@ -12,26 +12,28 @@ export default function SearchBar() {
   return (
     <>
       <div className="search--bar">
-        <figure className="logo--img-wrapper">
-          <Image className="logo--img search--bar--logo" src={logo} alt="Summarist Icon" />
-        </figure>
-        <div className="search--bar--wrapper">
-          <form className="search--form" onSubmit={getSearchBooks}>
-            <input
-              id="userInput"
-              type="text"
-              value={bookSearch}
-              onChange={(e) => {setBookSearch(e.target.value)}}
-              placeholder="Search for books"
-            />
-            <button 
-              className="search--btn" 
-              type="submit">
-                <IoSearch />
-            </button>          
-          </form>        
-          <div className="burger--menu">☰</div>
-        </div>  
+        <div className="search--bar--container">
+          <figure className="logo--img-wrapper">
+            <Image className="logo--img search--bar--logo" src={logo} alt="Summarist Icon" />
+          </figure>
+          <div className="search--bar--wrapper">
+            <form className="search--form" onSubmit={getSearchBooks}>
+              <input
+                id="userInput"
+                type="text"
+                value={bookSearch}
+                onChange={(e) => {setBookSearch(e.target.value)}}
+                placeholder="Search for books"
+              />
+              <button 
+                className="search--btn" 
+                type="submit">
+                  <IoSearch />
+              </button>          
+            </form> 
+            <div className="burger--menu">☰</div>          
+          </div>
+        </div>
       </div>
     </>
   )

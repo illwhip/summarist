@@ -26,17 +26,22 @@ body {
 .search--bar {
   background-color: #ffffff;
   height: 80px;
-  z-index: 1;
+  z-index: 1;  
+  width: 100vw;
   border-bottom: 1px solid #e1e7ea;
+}
+
+.search--bar--container {
+  width: calc(100% - 200px);
+  max-width: 1070px;  
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 100vw;
-  max-width: 1070px;
+  transform: translateX(200px);
 }
 
 .search--bar--logo {
-  visibility: hidden;
+  display: none;
 }
 
 .search--bar--wrapper {
@@ -56,7 +61,7 @@ body {
   width: 100%;
   background-color: #f1f6f4;
   color: #042330;
-  padding: 0 16px;
+  padding: 0 32px;
   outline: none;
   border: 2px solid #e1e7ea;
   border-top-left-radius: 8px;
@@ -79,26 +84,34 @@ body {
 }
 
 .burger--menu {
-  visibility: hidden;
+  display: none;
   font-size: 24px;
   cursor: pointer;
 }
 
 @media (max-width: 768px) {
+  .search--bar--container {
+    width: 100%;
+    transform: translateX(0px);
+  }
+
   .search--bar--logo {
-    visibility: visible;
+    display: block;
     margin-left: 24px;
     margin-bottom: 16px;
   }
 
   .burger--menu {
-    visibility: visible;
+    display: block;
   }
 }
 
 @media (max-width: 468px) {
   .search--bar {
     height: 140px;
+  }
+
+  .search--bar--container {    
     flex-direction: column;
     justify-content: center;
   }
@@ -267,6 +280,36 @@ body {
   color: #6b757b;
 }
 
+/* loggedoutsettings Component */
+
+.logged--out {
+  border-top: 1px solid #e1e7ea;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  max-width: 460px;
+}
+
+.logged--out--img--wrapper {
+  width: 100%;
+  height: 100%
+}
+
+.logged--out--img {
+  width: 100%;
+  height: 100%;
+}
+
+.logged--out--text {
+  font-size: 24px;
+  font-weight: 700;
+  color: #032b41;
+  text-align: center;
+  margin-bottom: 16px;
+}
+
 /* Pages: forYou, myLibrary, settings */
 
 .for__you--container,
@@ -274,8 +317,9 @@ body {
 .settings--container {
   max-width: 1070px;
   width: 100%;
-  margin: 0 auto 0 200px;
+  margin: 0 auto;
   padding: 40px 24px;
+  transform: translateX(200px);
 }
 
 .for__you--heading,
@@ -310,10 +354,15 @@ body {
   color: #032b41;
 }
 
-.user--info--sub {
+.user--info {
   border-top: 1px solid #e1e7ea;
+}
+
+.user--info--sub {  
   text-align: left;
   padding: 34px 0;
+  display: flex;
+  flex-direction: column;
   gap: 8px;
 }
 
@@ -443,7 +492,7 @@ body {
   .for__you--container,
   .mylibrary--container,
   .settings--container {
-    margin: 0 auto;
+    transform: translateX(0px)
   }
   .selected--book {
     flex-direction: column;

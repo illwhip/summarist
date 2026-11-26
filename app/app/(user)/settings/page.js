@@ -6,7 +6,7 @@ export default function Settings({ user }) {
     <div className="settings--container">
       <h2 className="settings--heading">Settings</h2>
       <div className="user--info">
-        {!!user ? 
+        {!user ? 
         <LoggedOutSettings /> 
         :
         <>
