@@ -32,3 +32,10 @@ export async function getSearchBooks() {
   return data
 }
 
+export async function findBook(id) {
+  const selected = await getSelectedBook()
+  const recommended = await getRecommendedBooks()
+  const suggested = await getSuggestedBooks()
+  const library = [...selected, ...recommended, ...suggested]
+  return library.find((book) => book.id === id)
+}

@@ -1,6 +1,8 @@
 
 
-export default function BookPlayer( book ) {
+export default async function BookPlayer({ params }) {
+  const { id } = await params
+    const book = await findBook(id)
 
   return (
     <div className="player--container">

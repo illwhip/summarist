@@ -4,6 +4,7 @@ import { auth } from "../firebase/init"
 import { signOut, signInWithEmailAndPassword, createUserWithEmailAndPassword, signInWithPopup, GoogleAuthProvider } from "firebase/auth"
 import { setUser, clearUser } from '../redux/features/logSlice'
 import { closeModal } from "../redux/features/openLoginSlice"
+import { useParams } from "next/navigation"
 
 async function register( email, password, dispatch ) {
   try {
@@ -45,6 +46,5 @@ async function logOut( dispatch ) {
 function resetPassword( email ) {
   console.log(email)
 }
-
 
 export { register, logIn, googleLogin, logOut, resetPassword }

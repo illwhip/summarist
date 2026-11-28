@@ -3,12 +3,16 @@ import { FaRegStar } from "react-icons/fa6"
 import { SlMicrophone } from "react-icons/sl"
 import { LuClock } from "react-icons/lu"
 import { HiOutlineLightBulb } from "react-icons/hi"
-import { LuBookOpenText } from "react-icons/lu"
 import { BsBookmark } from "react-icons/bs"
 import { BsBookmarkFill } from "react-icons/bs"
-import Link from "next/link"
+import { findBook } from "@/app/redux/functions"
+import ReadButton from "@/app/components/readButton"
+import ListenButton from "@/app/components/listenButton"
 
-export default function Book({ book }) {
+
+export default async function Book({ params }) {
+  const { id } = await params
+  const book = await findBook(id)
 
   return (
     <>
@@ -36,12 +40,10 @@ export default function Book({ book }) {
           </div>
         </div>
         <div className="book--options">
-          <Link href={`/app/bookPlayer/${id}`} >
-          <button className="read__book" onClick={() => dispatchEvent(bookOpen)}><LuBookOpenText /> Read</button></Link>
-          <Link href={`/app/bookPlayer/${id}`} >
-          <button className="listen__book" onClick={() => dispatchEvent(bookOpen)}><SlMicrophone /> Listen </button></Link>
+          <ReadButton id={book.id} />
+          <ListenButton id={book.id}/>          
         </div>
-        {isFavorite ?  
+        {/* {isFavorite ?  
           <button 
             className="add--library" > 
               <BsBookmark /> Add title to My Library
@@ -51,10 +53,10 @@ export default function Book({ book }) {
             className="add--library" > 
               <BsBookmarkFill /> Saved in My Library
           </button>
-        }        
+        }         */}
       </div>
       <div className="book__cover--wrapper">
-        <img src={book.img} alt="Book cover" />
+        <img src={book.imageLink} alt="Book cover" />
       </div>
     </div>
     <div className="book--summary">
