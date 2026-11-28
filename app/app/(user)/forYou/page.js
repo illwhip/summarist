@@ -1,6 +1,7 @@
 
 import BookCard from "@/app/components/bookCard"
 import { getRecommendedBooks, getSelectedBook, getSuggestedBooks } from "@/app/redux/functions"
+import Link from "next/link"
 import { FaPlayCircle } from "react-icons/fa"
 
 
@@ -16,7 +17,7 @@ export default async function ForYou() {
       <h2 className="for__you--heading">Selected just for you</h2>
       <div className="selected">        
         {selected.map((book) => 
-          <div key={book.id} className="selected--book">
+          <Link href="app/book/id" key={book.id} className="selected--book">
             <p className="selected--book__subtitle">{book.subTitle}</p>
             <div className="selected--book__divider"></div>
             <div className="selected--row">
@@ -32,7 +33,7 @@ export default async function ForYou() {
                 </div>
               </div>
             </div>
-          </div>
+          </Link>
         )}        
       </div>
 
