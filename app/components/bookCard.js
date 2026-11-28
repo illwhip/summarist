@@ -6,7 +6,7 @@ export default function BookCard({ book }){
 
   return (
     <div className="book--card">
-      <Link href="/app/book/id" className="book--link">
+      <Link href={`/app/book/${book.id}`} className="book--link">
         <div className="book-card--wrapper">
           <div>
             <img className="book--card--img" src={book.imageLink} alt="" />

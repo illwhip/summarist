@@ -6,6 +6,7 @@ import { HiOutlineLightBulb } from "react-icons/hi"
 import { LuBookOpenText } from "react-icons/lu"
 import { BsBookmark } from "react-icons/bs"
 import { BsBookmarkFill } from "react-icons/bs"
+import Link from "next/link"
 
 export default function Book({ book }) {
 
@@ -35,8 +36,10 @@ export default function Book({ book }) {
           </div>
         </div>
         <div className="book--options">
-          <button className="read__book" onClick={() => dispatchEvent(bookOpen)}><LuBookOpenText /> Read</button>
-          <button className="listen__book" onClick={() => dispatchEvent(bookOpen)}><SlMicrophone /> Listen </button>
+          <Link href={`/app/bookPlayer/${id}`} >
+          <button className="read__book" onClick={() => dispatchEvent(bookOpen)}><LuBookOpenText /> Read</button></Link>
+          <Link href={`/app/bookPlayer/${id}`} >
+          <button className="listen__book" onClick={() => dispatchEvent(bookOpen)}><SlMicrophone /> Listen </button></Link>
         </div>
         {isFavorite ?  
           <button 

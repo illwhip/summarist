@@ -17,7 +17,7 @@ export default async function MyLibrary({ user }) {
             <span className="saved--books--subheader">{favorites.length} {favorites.length === 0 ? "item" : "items"}</span>
           </div>
           <div className="saved--collection">
-            {favorites.length > 0 ? 
+            {favorites.length === 0 ? 
             <div className="empty--collection">
               <h2 className="empty--title">Save your favorite books!</h2>
               <p className="empty--para">When you save a book, it will appear here.</p>
