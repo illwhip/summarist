@@ -1,5 +1,7 @@
 
 
+import { findBook } from "@/app/redux/functions"
+
 export default async function BookPlayer({ params }) {
   const { id } = await params
     const book = await findBook(id)

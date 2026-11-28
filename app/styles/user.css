@@ -348,7 +348,8 @@ body {
 .for__you--container,
 .mylibrary--container,
 .settings--container,
-.book--page {
+.book--page,
+.player--container {
   max-width: 1070px;
   width: 100%;
   padding: 40px 24px;

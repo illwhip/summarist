@@ -9,7 +9,7 @@ export default function ReadButton({ id }){
     <Link href={`/app/bookPlayer/${id}`} >
       <button 
         className="read__book" 
-        onClick={() => dispatchEvent(bookOpen)}
+        // onClick={() => dispatchEvent(bookOpen)}
       >
         <LuBookOpenText /> Read
       </button>
